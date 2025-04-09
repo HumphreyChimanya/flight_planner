@@ -15,3 +15,8 @@ def plan_route(req: RouteRequest):
     if "error" in result:
         raise HTTPException(status_code=400, detail=result["error"])
     return result
+
+@app.post("/flight-plans")
+def save_flight_plan(plan: FlightPlan):
+    flight_plans.append(plan)
+    return {"status": "saved": "flight_id": plan.flight_id}
