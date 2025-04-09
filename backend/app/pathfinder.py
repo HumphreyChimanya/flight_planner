@@ -1,14 +1,14 @@
+import os
 import json
 import networkx as nx
 
-def load_airspace_graph(filepath: str):
-    with open(filepath) as f:
-        data = json.load(f)
-    G = nx.DiGraph()
-    for node, edges in data.items():
-        for dest, weight in edges.items():
-            G.add_edge(node, dest, weight=weight)
-    return G
+BASE_DIR = os.path.dirname(__file__)
+GRAPH_PATH = os.path.join(BASE_DIR, "data", "airspace_graph.json")
+
+def load_airspace_graph():
+    with open(GRAPH_PATH, "r") as f:
+        return json.load(f)
+
 
 def find_shortest_path(graph, origin: str, destination: str):
     try:

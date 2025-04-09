@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from .pathfinder import load_airspace_graph, find_shortest_path
 
 app = FastAPI()
-graph = load_airspace_graph("data/airspace_graph.json")
+graph = load_airspace_graph()
 
 class RouteRequest(BaseModel):
     origin: str
