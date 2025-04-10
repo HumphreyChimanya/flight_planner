@@ -1,3 +1,4 @@
+from typing import List
 from pydantic import BaseModel
 
 class FlightPlan(BaseModel):
@@ -5,4 +6,4 @@ class FlightPlan(BaseModel):
     aircraft: str
     source: str
     destination: str
-    route: list[str]
+    route: List[str]
